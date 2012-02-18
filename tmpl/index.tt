@@ -1,0 +1,23 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<section>
+
+[% IF data %]
+    Hi!
+    <section>
+    [% FOR v IN data %]
+      <ul>
+        <li>[% v.created_time %] [% v.from.name %] [% v.message %] </li>
+      </ul>
+    [% END %]
+    </section>
+    <form method="post" action="/account/logout">
+        <input type="submit" value="logout" class="btn primary" />
+    </form>
+[% ELSE %]
+    <a href="/facebook">login</a>
+[% END %]
+
+</section>
+
+[% END %]
